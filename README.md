@@ -41,7 +41,8 @@ and put the trained decoders weights to models folder
 Then run :
 ```shell
 python test_all_layer.py --content_path /path/to/content_img --style_path /path/to/style_img  --output_path /path/to/result_img --pretrained_vgg path/to/vgg19 --alpha 1
- ```
+python test_all_layer.py --content_path content\im6.jpg --style_path style\s6.jpg --output_path result/img6.jpg --pretrained_vgg vgg19.npy --alpha 0.8 
+```
 ## Train
 1 download the content images from [coco](http://msvocds.blob.core.windows.net/coco2014/train2014.zip)
 <br>
@@ -55,6 +56,7 @@ python gen_tfrecords.py
 
 ```shell
 python train.py --target_layer relu4 --pretrained_path path/to/vgg19 --max_iterator 20000 --checkpoint_path path/to/save_checkpoint --tfrecord_path path/to/tfrecord  --batch_size 8
+python train.py --target_layer relu5 --pretrained_path  vgg19.npy --max_iterator 400    --tfrecord_path  tfrecords/train.tfrecords --checkpoint_path models/decoder_5.ckpt --batch_size 8
 ```
 
 ## Reference
